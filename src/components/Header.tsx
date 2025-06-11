@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
               <button
                 key={item.section}
                 onClick={() => onNavigate(item.section)}
-                className="text-white hover:text-orange-400 transition-colors duration-200 font-medium"
+                className="text-white hover:text-orange-400 transition-colors duration-200 font-medium px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm"
               >
                 {item.label}
               </button>
@@ -81,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                     onNavigate(item.section);
                     setIsMenuOpen(false);
                   }}
-                  className="block w-full text-left py-3 text-white hover:text-orange-400 transition-colors duration-200 font-medium border-b border-white/10 last:border-b-0"
+                  className="block w-full text-left py-3 text-white hover:text-orange-400 transition-colors duration-200 font-medium border-b border-white/10 last:border-b-0 px-4 rounded-full bg-white/10 backdrop-blur-sm"
                 >
                   {item.label}
                 </button>
