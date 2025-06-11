@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <Utensils className="w-6 h-6 text-white" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
-                Glassify
+                We-Eat
               </span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
@@ -88,7 +88,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © 2024 Glassify Restaurant. All rights reserved.
+              © 2024 We-Eat Restaurant. All rights reserved.
             </div>
             <div className="flex space-x-6 text-gray-400 text-sm">
               <button className="hover:text-orange-400 transition-colors">

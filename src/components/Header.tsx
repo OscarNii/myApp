@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
               <Utensils className="w-6 h-6 text-white" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
-              Glassify
+              We-Eat
             </span>
           </div>
 
