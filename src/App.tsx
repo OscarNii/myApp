@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import { Utensils } from 'lucide-react';
 import About from './components/About';
 import Menu from './components/Menu';
 import BookingForm from './components/BookingForm';
@@ -11,6 +12,7 @@ import { MenuItem, CartItem } from './types';
 
 function App() {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const handleNavigation = (section: string) => {
     const element = document.getElementById(section);
@@ -50,26 +52,45 @@ function App() {
     setCart([]);
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 5000); // 5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-black bg-opacity-90 fixed inset-0 z-[9999]">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="flex items-center space-x-2 animate-pulse">
+            <div className="p-3 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full">
+              <Utensils className="w-8 h-8 text-white" />
+            </div>
+            <span className="text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+              We-Eat
+            </span>
+          </div>
+          <div className="w-32 h-1 bg-gray-700 rounded-full overflow-hidden">
+            <div className="h-full bg-gradient-to-r from-amber-500 to-orange-600 animate-progress"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-black">
       <Header onNavigate={handleNavigation} />
       <Hero onNavigate={handleNavigation} />
       <About />
-      <Menu 
-        cart={cart}
-        onAddToCart={addToCart}
-        onUpdateQuantity={updateQuantity}
-      />
+      <Menu cart={cart} onAddToCart={addToCart} onUpdateQuantity={updateQuantity} />
       <BookingForm />
-      <OrderSystem 
-        cart={cart}
-        onUpdateQuantity={updateQuantity}
-        onClearCart={clearCart}
-      />
+      <OrderSystem cart={cart} onUpdateQuantity={updateQuantity} onClearCart={clearCart} />
       <Contact />
       <Footer onNavigate={handleNavigation} />
     </div>
   );
 }
-
 export default App;

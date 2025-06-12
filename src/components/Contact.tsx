@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['hello@glassify.com', 'info@glassify.com'],
+      details: ['hello@We-Eat.com', 'info@We-Eat.com'],
       action: 'Send Email'
     }
   ];
@@ -43,7 +43,7 @@ const Contact: React.FC = () => {
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Get In Touch
             <span className="block bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
-              With Glassify
+              With We-Eat
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">

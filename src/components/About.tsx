@@ -39,7 +39,7 @@ const About: React.FC = () => {
             </h2>
             
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              For over 15 years, Glassify has been at the forefront of fine dining, 
+              For over 15 years, We-Eat has been at the forefront of fine dining, 
               creating memorable experiences through exceptional cuisine and warm hospitality. 
               Our commitment to quality and innovation has made us a beloved destination 
               for food enthusiasts and connoisseurs alike.
