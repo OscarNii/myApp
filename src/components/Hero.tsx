@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, Star } from 'lucide-react';
 
 interface HeroProps {
@@ -6,16 +6,45 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    { backgroundImage: 'https://images.pexels.com/photos/674687/pexels-photo-674687.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' },
+    { backgroundImage: 'https://images.pexels.com/photos/1109197/pexels-photo-1109197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' },
+    { backgroundImage: 'https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' },
+    { backgroundImage: 'https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' },
+    { backgroundImage: 'https://images.pexels.com/photos/2983103/pexels-photo-2983103.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => {
+        if (prevSlide === slides.length - 1) {
+          return 0; // Go back to the first slide after a 1-second pause
+        }
+ return (prevSlide + 1);
+      });
+    }, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
   return (
-    <section id="hero\" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg)',
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Background Images for Slideshow */}
+      <div className="absolute inset-0">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              backgroundImage: `url(${slide.backgroundImage})`,
+            }}
+          ></div>
+        ))}
+        <div className="absolute inset-0 bg-black/60"></div> {/* Dark overlay for text readability */}
       </div>
 
       {/* Content */}
