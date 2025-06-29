@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
       icon: MapPin,
       title: 'Visit Us',
       details: ['123 Gourmet Avenue', 'Culinary District, CD 12345'],
-      action: 'Get Directions'
+      action: 'Get Direction'
     },
     {
       icon: Phone,
