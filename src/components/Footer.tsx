@@ -7,7 +7,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const quickLinks = [
-    { label: 'Home', section: 'hero' },
+    { label: 'Homepage', section: 'hero' },
     { label: 'About Us', section: 'about' },
     { label: 'Menu', section: 'menu' },
     { label: 'Reservations', section: 'booking' }
